@@ -23,6 +23,10 @@ public class UserEntity {
     @Column
     private String email;
 
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private UserRole role = UserRole.USER;
+
     protected UserEntity() {};
 
     public static UserEntity of(String userName, String password, String email) {

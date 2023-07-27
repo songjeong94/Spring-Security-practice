@@ -11,20 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserLoginResponse {
 
-    private String userName;
-    private String email;
-
-    public static UserLoginResponse fromDto(UserDto userDto) {
-        return new UserLoginResponse(
-                userDto.getUserName(),
-                userDto.getEmail()
-        );
-    }
-
-    public static UserLoginResponse fromEntity(UserEntity user) {
-        return new UserLoginResponse(
-                user.getUserName(),
-                user.getEmail()
-        );
-    }
+    private String token;
 }

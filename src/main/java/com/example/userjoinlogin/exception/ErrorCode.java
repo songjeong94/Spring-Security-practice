@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
 
     DUPLICATED_USER_NAME(HttpStatus.CONFLICT, "User name is duplicated"),
+    DUPLICATED_USER_EMAIL(HttpStatus.CONFLICT, "User email is duplicated"),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "User not founded"),
     INVALID_PASSWORD(HttpStatus.UNAUTHORIZED, "Password is invalid"),
     INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "Token is invalid"),
