@@ -31,9 +31,9 @@ public class UserService {
         return UserDto.fromEntity(userEntity);
     }
 
-    public UserDto login(UserLoginRequest user) {
-        UserEntity userEntity = userRepository.findByUserName(user.getUserName()).orElseThrow(() -> new SnsApplicationException(ErrorCode.USER_NOT_FOUND, String.format("%s user name is not founded", user.getUserName())));
-        if(encode.matches(user.getPassword(), userEntity.getPassword())) {
+    public UserDto login(String userName, String password) {
+        UserEntity userEntity = userRepository.findByUserName(userName).orElseThrow(() -> new SnsApplicationException(ErrorCode.USER_NOT_FOUND, String.format("%s user name is not founded", userName)));
+        if(encode.matches(password, userEntity.getPassword())) {
             return UserDto.fromEntity(userEntity);
         } else throw new SnsApplicationException(ErrorCode.INVALID_PASSWORD);
     }
